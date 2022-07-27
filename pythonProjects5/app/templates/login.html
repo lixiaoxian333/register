@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100%;
+            background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+
+        }
+        .account {
+            width: 400px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            padding: 20px 40px;
+        }
+
+        .account h2 {
+            margin-top: 10px;
+            text-align: center;
+        }
+         .input-item {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 0;
+            padding: 10px;
+            border-bottom: 1px solid rgb(128, 125, 125);
+            font-size: 15px;
+            outline: none;
+        }
+        .input-item:placeholder {
+            text-transform: uppercase;
+        }
+        .btn{
+            text-align: center;
+            text-align: center;
+            padding: 25px;
+            margin: 38px;
+            width: 75%;
+            height: 34px;
+            background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+            float: center;
+            }
+
+    </style>
+</head>
+<body>
+  <div class="account">
+    <h2>用户注册</h2>
+    <form method="post" action="/register/">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>用户名</label>
+            {{form.name}}
+            <input type="text" name="请输入用户名" placeholder="请输入用户名" class="input-item">
+            <span style="color: red;">{{ form.name.errors }}</span>
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            {{form.password}}
+            <input type="password" name="请输入密码" placeholder="请输入密码" class="input-item">
+            <span style="color: red;">{{ form.password.errors}}</span>
+        </div>
+        <div class="form-group">
+            <label>用户身份</label>
+            {{form.user}}
+            <input type="text" name="请输入用户身份" placeholder="请输入用户身份" class="input-item">
+            <span style="color: red;">{{ form.user.errors}}</span>
+        </div>
+
+        <input type="submit" id="register" value="注册" />
+
+        <p style="color: red;text-align: center">{{ error_name }}</p>
+
+    </form>
+</div>
+</body>
+</html>
