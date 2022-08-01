@@ -5,3 +5,4 @@
 在Django导入数据库
 在视图view.py写函数，在urls.py写调用函数路径
 在login.html页面引入路径。
+最后在终端输入python manage.py  runserver ，点击网址最终实现该功能。
